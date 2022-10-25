@@ -13,6 +13,8 @@ app = Flask(__name__)
 load_dotenv()
 
 OPENAI_KEY = os.environ.get("API_KEY")
+openai.api_key = OPENAI_KEY
+
 topics = [
     "Behavioral",
     "Brain-teaser",
@@ -32,6 +34,10 @@ fields = [
     "Health",
 ]
 
+#helper function to ensure output in a particular format
+def convertResponseToList(response):
+    return list(map(lambda option: option.lstrip('0123456789.-) '), response.split("\n")))
+
 #initial route called when page loaded via GET request
 #send the data for topics and fields to display on home page
 @app.route('/')
@@ -42,13 +48,14 @@ def index():
 @app.route('/generateQuestions', methods = ['GET','POST'])
 def generateQuestions():
     json_data = request.get_json()
-    chosen_topic = json_data['topic']
-    chosen_field = json_data['field']
+    chosen_topic = topics[json_data['topic_idx']] 
+    chosen_field = fields[json_data['field_idx']]
     prompt = f"List 5 {chosen_topic.lower()} interview questions for a role in {chosen_field.lower()} numbered 1 to 5 "
     completion = openai.Completion.create(engine="text-davinci-002",
                                           max_tokens=256,
                                           prompt=prompt)
     result = completion.choices[0].text.strip()
+    result = convertResponseToList(result)
     returnData = {'prompt': prompt, 'result': result}
     return jsonify(returnData)
 

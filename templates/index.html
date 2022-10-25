@@ -3,7 +3,8 @@
 <head>
 	<script>
 	//this is super important -- lets us access all the json items in javascript 
-	var items = {{items|tojson}} 
+	var topics = {{topics|tojson}}
+	var fields = {{fields|tojson}} 
 	</script>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,28 +18,8 @@
 </head>
 <body>
 	<div class = "container">
-		<div class = "row text-center">
-			<div class = "col-12">
-				<div class = "large bold">
-					To-do List
-				</div>
-			</div>
-		</div>
-		<div class = "row text-center">
-			<div class = "col-6">
-				Item to add:
-			</div>
-			<div class = "col-6">
-				<input id = "todo-input" type = "text">
-			</div>
-		</div>
-		<div class = "row text-center">
-			<div class = "col-12">
-				<button id ="add-item-button" type="button" class="btn btn-primary">Add to list</button>
-			</div>
-		</div>
-		<div id = "todo-overall" class = "text-center">
-		</div>
+		{{topics}}
+		{{fields}}
 	</div>
 </body>
 </html>
