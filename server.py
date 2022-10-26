@@ -15,24 +15,24 @@ load_dotenv()
 OPENAI_KEY = os.environ.get("API_KEY")
 openai.api_key = OPENAI_KEY
 
-topics = [
-    "Behavioral",
-    "Brain-teaser",
-    "Communication",
-    "Opinion",
-    "Situational",
-    "Technical",
-]
+topics = {
+    "0" : "Behavioral",
+    "1" : "Brain-teaser",
+    "2" : "Communication",
+    "3" : "Opinion",
+    "4" : "Situational",
+    "5" : "Technical",
+}
 
-fields = [
-    "Accounting",
-    "Biology",
-    "Business",
-    "Computer Science",
-    "Engineering",
-    "Finance",
-    "Health",
-]
+fields = {
+    "acc" : "Accounting",
+    "bio" : "Biology",
+    "bsn" : "Business",
+    "cs" : "Computer Science",
+    "eng" : "Engineering",
+    "fin" : "Finance",
+    "he" : "Health",
+}
 
 #helper function to ensure output in a particular format
 def convertResponseToList(response):
