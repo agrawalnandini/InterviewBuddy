@@ -26,7 +26,7 @@ function get_feedback_btn_click(){
            },
         success: function(result){
             // $("#loading-div").hide()
-            window.location.href = "/evaluate-answer"
+            window.location.href = "/evaluateAnswer"
         },
         error: function(result){
             console.log(result['responseText'])
