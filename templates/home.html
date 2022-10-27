@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% block content %}
+<script type = "text/javascript" src = "{{url_for('static', filename = 'home.js')}}"></script>
+<div class = "row margin-top margin-bottom justify-content-center">
+    <h3> Improve your Interview Skills </h3>
+</div>
+<div class = "row margin-bottom">
+    <div class = "col-md-7 padding-right padding-left">
+        <p> If you're looking to improve your interview answers and land your dream job, you've come to the right place. Our AI-powered service can help you hone your responses to questions and give you the edge you need to succeed.</p>
+    </div>
+    <div class = "col-md-5 padding-right padding-left">
+        <img src = "static/images/home-page.png" id = "home-page-img">
+    </div>
+</div>
+<div class = "row justify-content-end">
+    <button type = "button" class="btn btn-warning" id = "get-started-btn">
+        Get Started
+    </button>
+</div>
+{% endblock %}

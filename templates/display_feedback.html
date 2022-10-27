@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+{% block content %}
+<script>
+    let return_data = {{return_data|tojson}}
+    let chosen_question = {{chosen_question|tojson}}
+    let user_answer = {{user_answer|tojson}}
+</script>
+<script type = "text/javascript" src = "{{url_for('static', filename = 'display_feedback.js')}}"></script>
+<div class = "row margin-top margin-bottom justify-content-center">
+    <h3> Feedback Report </h3>
+</div>
+<div class = "row margin-bottom">
+    <span id = "report-chosen-question-div">
+        <h5> Chosen Question: </h5>
+    </span>
+</div>
+<div class = "row margin-bottom">
+    <span id = "report-user-answer-div">
+        <h5> Your Answer: </h5>
+    </span>
+</div>
+<div class = "row margin-bottom">
+    <span id = "report-feedback-div">
+        <h5> Feedback with grade: </h5>
+    </span>
+</div>
+<div class = "row margin-bottom">
+    <span id = "report-keyword-analysis-div">
+        <h5> Keyword Analysis: </h5>
+    </span>
+</div>
+<div class = "row">
+    <div class = "col-md-6 d-flex justify-content-start no-padding">
+        <button type = "button" class = 'btn btn-danger' id = "try-again-btn">
+            Try Answering Again
+        </button>
+    </div>
+    <div class = "col-md-6 d-flex justify-content-end no-padding">
+        <button type = "button" class = 'btn btn-warning' id = "return-to-home-btn">
+            Return to Home
+        </button>
+    </div>
+</div>
+{% endblock %}

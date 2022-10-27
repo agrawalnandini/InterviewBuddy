@@ -1,0 +1,55 @@
+.navbar {
+    background-color: #6a7dd5;
+}
+
+.navbarText {
+    font-size: 32px;
+    color: white;
+}
+
+#navbar-logo-img{
+    width: 50px;
+    height: 50px;
+}
+
+.margin-top{
+    margin-top: 30px;
+}
+
+.padding-right{
+    padding-right: 30px;
+}
+.padding-left{
+    padding-left: 30px;
+}
+
+#home-page-img{
+    width: 460.8px;
+    height: 316.8px;
+}
+
+#btn-arrow-img{
+    width: 20px;
+    height: 20px;
+}
+
+.margin-bottom{
+    margin-bottom: 30px;
+}
+
+#loading-div{
+    display: none;
+}
+
+#user-answer-text-area{
+    width: 900px;
+    height: 300px;
+}
+
+.no-padding{
+    padding: 0px !important;
+}
+
+.margin-right{
+    margin-right: 30px;
+}
