@@ -26,13 +26,12 @@ function generate_questions_btn_click(){
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(user_choice),
         beforeSend: function(){
-            console.log("BEFORE SEND")
             $("#loading-div").show()
             $("#default-div").hide()
            },
         success: function(result){
-            console.log(result)
             $("#loading-div").hide()
+            window.location.href = "/generated-questions"
         },
         error: function(result){
             console.log(result['responseText'])

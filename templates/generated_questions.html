@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block content %}
+<script>
+	//this is super important -- lets us access all the json items in javascript 
+	let gpt_prompt = {{prompt|tojson}}
+	let questions = {{questions|tojson}} 
+</script>
+<script type = "text/javascript" src = "{{url_for('static', filename = 'generated_questions.js')}}"></script>
+{% endblock %}
