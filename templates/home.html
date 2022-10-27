@@ -1,10 +1,11 @@
 {% extends "index.html" %}
 {% block content %}
+<script type = "text/javascript" src = "{{url_for('static', filename = 'home.js')}}"></script>
 <div class = "row margin-top">
     <div class = "col-md-7 padding-right padding-left">
         <h3> Improve your Interview Skills </h3>
         <hp> If you're looking to improve your interview answers and land your dream job, you've come to the right place. Our AI-powered service can help you hone your responses to questions and give you the edge you need to succeed.</p>
-        <button type = "button">
+        <button type = "button" id = "get-started-btn">
             Get Started
             <img src = "static/images/right-arrow.jpeg" id = "btn-arrow-img">
         </button>
