@@ -48,15 +48,15 @@ def index():
 @app.route('/generateQuestions', methods = ['GET','POST'])
 def generateQuestions():
     json_data = request.get_json()
-    chosen_topic = topics[json_data['topic_idx']] 
-    chosen_field = fields[json_data['field_idx']]
+    chosen_topic = topics[json_data['topic_index']] 
+    chosen_field = fields[json_data['field_index']]
     prompt = f"List 5 {chosen_topic.lower()} interview questions for a role in {chosen_field.lower()} numbered 1 to 5 "
     completion = openai.Completion.create(engine="text-davinci-002",
                                           max_tokens=256,
                                           prompt=prompt)
     result = completion.choices[0].text.strip()
     result = convertResponseToList(result)
-    returnData = {'prompt': prompt, 'result': result}
+    returnData = {'prompt': prompt, 'questions': result}
     return jsonify(returnData)
 
 # Evaluates the user's answer to the selected question and sends the feedback and keywords
