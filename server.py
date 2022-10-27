@@ -33,6 +33,7 @@ fields = {
     "fin" : "Finance",
     "he" : "Health",
 }
+
 chosen_topic = None
 chosen_field = None
 prompt = None
@@ -73,26 +74,19 @@ def generateQuestions():
 # Called again when user re-enters a new answer to incorporate the feedback 
 @app.route('/evaluateAnswer', methods = ['GET','POST'])
 def evaluateAnswer():
-    # json_data = request.get_json()
-    # user_answer = json_data['answer']
-    # question = json_data['question']
-
     grading = 'give a grade out of 5 with reasoning and useful feedback'
     prompt = f"Evaluate the answer '{user_answer}' to the interview question '{chosen_question}' and {grading}."
     completion = openai.Completion.create(engine="text-davinci-002",
                                           max_tokens=256,
                                           prompt=prompt)
     result = completion.choices[0].text.strip()
-
     chained_prompt =  f"Find keywords from the interview answer '{prompt}'"
     completion = openai.Completion.create(engine="text-davinci-002",
                                           max_tokens=256,
                                           prompt=chained_prompt)
-
     keyword_result = completion.choices[0].text.strip()
-
     returnData = {'prompt': prompt, 'feedback': result, 'keywords': keyword_result}
-    return render_template("display_feedback.html", topics = topics, fields = fields)
+    return render_template("display_feedback.html", topics = topics, fields = fields, return_data = returnData, chosen_question = chosen_question, user_answer = user_answer)
 
 @app.route('/get-started')
 def get_started():
@@ -108,7 +102,6 @@ def generated_questions():
 def store_user_data():
     global chosen_question
     global user_answer
-
     json_data = request.get_json()
     json_data_keys = json_data.keys()
     if 'chosen_question' in json_data_keys :
