@@ -98,7 +98,7 @@ def evaluateAnswer():
 def get_started():
     return render_template("get_started.html", topics = topics, fields = fields)
 
-@app.route('/generated-questions', methods = ['GET','POST'])
+@app.route('/generated-questions')
 def generated_questions():
     global prompt
     global questions
@@ -115,6 +115,12 @@ def store_user_data():
     elif json_data['user_answer']:
         user_answer = json_data['user_answer']
     return jsonify("Success"), 200
+
+@app.route('/answer-question')
+def answer_question():
+    global chosen_question
+    return render_template("answer_question.html", topics = topics, fields = fields, chosen_question = chosen_question)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

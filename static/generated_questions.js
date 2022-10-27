@@ -37,7 +37,7 @@ function answer_question_btn_click(){
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(user_choice),
         success: function(result){
-            console.log("Success")
+            window.location.href = "/answer-question"
         },
         error: function(result){
             console.log(result['responseText'])

@@ -31,3 +31,9 @@
 #loading-div{
     display: none;
 }
+
+#user-answer-input{
+    width: 900px;
+    height: 300px;
+    ;
+}
