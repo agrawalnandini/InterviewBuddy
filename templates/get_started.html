@@ -1,4 +1,28 @@
 {% extends "index.html" %}
 {% block content %}
-GET STARTED PAGE
+<script type = "text/javascript" src = "{{url_for('static', filename = 'get_started.js')}}"></script>
+<div class = "row margin-top margin-bottom justify-content-center">
+    <h3> Let's get some details about you! </h3>
+</div>
+<div class = "row">
+    <p> 1. Select a field: </p>
+    <form>
+        <select id = "field-options-select">
+            <option value = "" selected = "selected" disabled>Please select one</option>
+        </select>
+    </form>
+</div>
+<div class = "row">
+    <p> 2. Select a topic: </p>
+    <form>
+        <select id = "topic-options-select">
+            <option value = "" selected = "selected" disabled>Please select one</option>
+        </select>
+    </form>
+</div>
+<div class = "row">
+    <button type = "button" id = "generate-questions-btn">
+        Generate Questions
+    </button>
+</div>
 {% endblock %}
