@@ -4,7 +4,7 @@
     let chosen_question = {{chosen_question|tojson}}
 </script>
 <script type = "text/javascript" src = "{{url_for('static', filename = 'answer_question.js')}}"></script>
-<span id = "default-div">
+<div id = "default-div">
     <div class = "row margin-top margin-bottom justify-content-center">
         <h3> Try answering your chosen question </h3>
     </div>
@@ -19,13 +19,15 @@
             <textarea type="text" id = "user-answer-text-area" autofocus></textarea>
         </span>
     </div>
-    <div class = "row">
-        <button type = "button" id = "get-feedback-btn">
+    <div class = "row justify-content-end">
+        <button type = "button" class= 'btn btn-warning' id = "get-feedback-btn">
             Get Feedback
         </button>
     </div>
-</span>
-<div class = "row" id = "loading-div">
-    <img src = "static/images/loading.png!c1024wm0">
 </div>
+<center>
+    <div class = "row" id = "loading-div">
+        <img src = "static/images/loading.png!c1024wm0">
+    </div>
+</center>
 {% endblock %}

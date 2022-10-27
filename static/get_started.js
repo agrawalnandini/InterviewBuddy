@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    console.log(fields)
+    console.log(topics)
     render_categories_in_dropdown(options = fields, dropdown_id = "#field-options-select")
     render_categories_in_dropdown(options = topics, dropdown_id = "#topic-options-select")
     $("#generate-questions-btn").click(function(){

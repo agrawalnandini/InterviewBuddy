@@ -1,11 +1,11 @@
 {% extends "index.html" %}
 {% block content %}
 <script type = "text/javascript" src = "{{url_for('static', filename = 'get_started.js')}}"></script>
-<span id = "default-div">
+<div id = "default-div">
     <div class = "row margin-top margin-bottom justify-content-center">
         <h3> Let's get some details from you! </h3>
     </div>
-    <div class = "row margin-bottom">
+    <div class = "row margin-bottom justify-content-center">
             <h5 class = "margin-right"> Select a field: </h5>
         <form>
             <select id = "field-options-select">
@@ -13,7 +13,7 @@
             </select>
         </form>
     </div>
-    <div class = "row margin-bottom">
+    <div class = "row margin-bottom justify-content-center">
         <h5 class = "margin-right"> Select a topic: </h5>
         <form>
             <select id = "topic-options-select">
@@ -21,13 +21,15 @@
             </select>
         </form>
     </div>
-    <div class = "row">
-        <button type = "button" id = "generate-questions-btn">
+    <div class = "row justify-content-center">
+        <button type = "button" class= 'btn btn-warning' id = "generate-questions-btn">
             Generate Questions
         </button>
     </div>
-</span>
+</div>
+<center>
 <div class = "row" id = "loading-div">
     <img src = "static/images/loading.png!c1024wm0">
 </div>
+</center>
 {% endblock %}

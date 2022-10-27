@@ -1,6 +1,15 @@
+.navbar {
+    background-color: #6a7dd5;
+}
+
+.navbarText {
+    font-size: 32px;
+    color: white;
+}
+
 #navbar-logo-img{
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 }
 
 .margin-top{

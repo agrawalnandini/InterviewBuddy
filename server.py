@@ -43,7 +43,9 @@ user_answer = None
 
 # Helper function to ensure output in a particular format
 def convertResponseToList(response):
-    return list(map(lambda option: option.lstrip('0123456789.-) '), response.split("\n")))
+    whitespaced_list = list(map(lambda option: option.lstrip('0123456789.-) '), response.split("\n")))
+    result = list(filter(None, whitespaced_list))
+    return result
 
 # Initial route called when page loaded via GET request
 # Send the data for topics and fields to display on home page
