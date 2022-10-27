@@ -1,4 +1,25 @@
-#navbar-logo{
+#navbar-logo-img{
     width: 30px;
     height: 30px;
+}
+
+.margin-top{
+    margin-top: 30px;
+}
+
+.padding-right{
+    padding-right: 30px;
+}
+.padding-left{
+    padding-left: 30px;
+}
+
+#home-page-img{
+    width: 460.8px;
+    height: 316.8px;
+}
+
+#btn-arrow-img{
+    width: 20px;
+    height: 20px;
 }
