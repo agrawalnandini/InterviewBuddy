@@ -84,5 +84,9 @@ def evaluateAnswer():
     returnData = {'prompt': prompt, 'feedback': result, 'keywords': keyword_result}
     return jsonify(returnData)
 
+@app.route('/get-started')
+def get_started():
+    return render_template("get_started.html", topics = topics, fields = fields)
+
 if __name__ == "__main__":
     app.run(debug=True)
