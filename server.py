@@ -37,6 +37,8 @@ chosen_topic = None
 chosen_field = None
 prompt = None
 questions = None
+chosen_question = None
+user_answer = None
 
 # Helper function to ensure output in a particular format
 def convertResponseToList(response):
@@ -101,6 +103,18 @@ def generated_questions():
     global prompt
     global questions
     return render_template("generated_questions.html", topics = topics, fields = fields, prompt = prompt, questions = questions, chosen_topic = chosen_topic, chosen_field = chosen_field)
+
+@app.route('/store_user_data', methods = ['GET','POST'])
+def store_user_data():
+    global chosen_question
+    global user_answer
+
+    json_data = request.get_json()
+    if json_data['chosen_question']:
+        chosen_question = json_data['chosen_question']
+    elif json_data['user_answer']:
+        user_answer = json_data['user_answer']
+    return jsonify("Success"), 200
 
 if __name__ == "__main__":
     app.run(debug=True)
