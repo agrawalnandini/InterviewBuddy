@@ -3,8 +3,8 @@
 <head>
 	<script>
 	//this is super important -- lets us access all the json items in javascript 
-	var topics = {{topics|tojson}}
-	var fields = {{fields|tojson}} 
+	let topics = {{topics|tojson}}
+	let fields = {{fields|tojson}} 
 	</script>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +14,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel = "stylesheet" href="/static/styles/main.css" />
 	<script src = "/static/index.js"></script>
-	<title>Todo list</title>
+	<title>InterviewBuddy</title>
+	<link rel="shortcut icon" href="static/images/logo.png">
 </head>
 <body>
 	<div class = "container">
-		{{topics}}
-		{{fields}}
 	</div>
 </body>
 </html>

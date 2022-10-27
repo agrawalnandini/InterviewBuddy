@@ -34,17 +34,17 @@ fields = {
     "he" : "Health",
 }
 
-#helper function to ensure output in a particular format
+# Helper function to ensure output in a particular format
 def convertResponseToList(response):
     return list(map(lambda option: option.lstrip('0123456789.-) '), response.split("\n")))
 
-#initial route called when page loaded via GET request
-#send the data for topics and fields to display on home page
+# Initial route called when page loaded via GET request
+# Send the data for topics and fields to display on home page
 @app.route('/')
 def index():
     return render_template("index.html", topics= topics,fields = fields)
 
-#ajax call which gets the chosen topic and field, and returns all the questions
+# Ajax call which gets the chosen topic and field, and returns all the questions
 @app.route('/generateQuestions', methods = ['GET','POST'])
 def generateQuestions():
     json_data = request.get_json()
@@ -59,7 +59,7 @@ def generateQuestions():
     returnData = {'prompt': prompt, 'result': result}
     return jsonify(returnData)
 
-#evaluates the user's answer to the selected question and sends the feedback and keywords
+# Evaluates the user's answer to the selected question and sends the feedback and keywords
 # Called again when user re-enters a new answer to incorporate the feedback 
 @app.route('/evaluateAnswer', methods = ['GET','POST'])
 def evaluateAnswer():
