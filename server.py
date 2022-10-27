@@ -33,9 +33,9 @@ fields = {
     "fin" : "Finance",
     "he" : "Health",
 }
-
+chosen_topic = None
+chosen_field = None
 prompt = None
-
 questions = None
 
 # Helper function to ensure output in a particular format
@@ -51,6 +51,8 @@ def index():
 # Ajax call which gets the chosen topic and field, and returns all the questions
 @app.route('/generateQuestions', methods = ['GET','POST'])
 def generateQuestions():
+    global chosen_topic
+    global chosen_field
     global prompt
     global questions
     json_data = request.get_json()
@@ -63,7 +65,7 @@ def generateQuestions():
     result = completion.choices[0].text.strip()
     questions = convertResponseToList(result)
     returnData = {'prompt': prompt, 'questions': questions}
-    return jsonify(returnData)
+    return jsonify("Success"), 200
 
 # Evaluates the user's answer to the selected question and sends the feedback and keywords
 # Called again when user re-enters a new answer to incorporate the feedback 
@@ -98,9 +100,7 @@ def get_started():
 def generated_questions():
     global prompt
     global questions
-    return render_template("generated_questions.html", topics = topics, fields = fields, prompt = prompt, questions = questions)
-
-
+    return render_template("generated_questions.html", topics = topics, fields = fields, prompt = prompt, questions = questions, chosen_topic = chosen_topic, chosen_field = chosen_field)
 
 if __name__ == "__main__":
     app.run(debug=True)

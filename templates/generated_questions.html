@@ -2,8 +2,31 @@
 {% block content %}
 <script>
 	//this is super important -- lets us access all the json items in javascript 
-	let gpt_prompt = {{prompt|tojson}}
+	let chosen_topic = {{chosen_topic|tojson}}
+	let chosen_field = {{chosen_field|tojson}} 
+    let gpt_prompt = {{prompt|tojson}}
 	let questions = {{questions|tojson}} 
 </script>
 <script type = "text/javascript" src = "{{url_for('static', filename = 'generated_questions.js')}}"></script>
+<div class = "row margin-top margin-bottom justify-content-center">
+    <h3> Here's some questions for you to practice!</h3>
+</div>
+<div class = "row margin-bottom">
+    <span id = "prompt-div">
+        <h5> Prompt:</h5>
+    </span>
+</div>
+<div class = "row margin-bottom">
+    <span id = "questions-div">
+        <h5> Questions:</h5>
+    </span>
+</div>
+<div class = "row margin-bottom">
+    <h5> Choose a question to practice</h5>
+    <form>
+        <select id = "questions-options-select">
+            <option value = "" selected = "selected" disabled>Please select one</option>
+        </select>
+    </form>
+</div>
 {% endblock %}
