@@ -1,26 +1,31 @@
 {% extends "index.html" %}
 {% block content %}
 <script type = "text/javascript" src = "{{url_for('static', filename = 'answer_question.js')}}"></script>
-<script>
-	let chosen_question = {{chosen_question|tojson}}
-</script>
-<div class = "row margin-top margin-bottom justify-content-center">
-    <h3> Try answering your chosen question </h3>
-</div>
-<div class = "row margin-bottom">
-    <span id = "chosen-question-div">
-        <h5> Chosen Question: </h5>
-    </span>
-</div>
-<div class = "row margin-bottom">
-    <span id = "user-answer-div">
-        <h5> Enter your answer: </h5>
-        <textarea type="text" id = "user-answer-input" autofocus></textarea>
-    </span>
-</div>
-<div class = "row">
-    <button type = "button" id = "get-feedback-btn">
-        Get Feedback
-    </button>
+<span id = "default-div">
+    <script>
+        let chosen_question = {{chosen_question|tojson}}
+    </script>
+    <div class = "row margin-top margin-bottom justify-content-center">
+        <h3> Try answering your chosen question </h3>
+    </div>
+    <div class = "row margin-bottom">
+        <span id = "chosen-question-div">
+            <h5> Chosen Question: </h5>
+        </span>
+    </div>
+    <div class = "row margin-bottom">
+        <span id = "user-answer-div">
+            <h5> Enter your answer: </h5>
+            <textarea type="text" id = "user-answer-text-area" autofocus></textarea>
+        </span>
+    </div>
+    <div class = "row">
+        <button type = "button" id = "get-feedback-btn">
+            Get Feedback
+        </button>
+    </div>
+</span>
+<div class = "row" id = "loading-div">
+    <img src = "static/images/loading.png!c1024wm0">
 </div>
 {% endblock %}

@@ -73,12 +73,12 @@ def generateQuestions():
 # Called again when user re-enters a new answer to incorporate the feedback 
 @app.route('/evaluateAnswer', methods = ['GET','POST'])
 def evaluateAnswer():
-    json_data = request.get_json()
-    user_answer = json_data['answer']
-    question = json_data['question']
+    # json_data = request.get_json()
+    # user_answer = json_data['answer']
+    # question = json_data['question']
 
     grading = 'give a grade out of 5 with reasoning and useful feedback'
-    prompt = f"Evaluate the answer '{user_answer}' to the interview question '{question}' and {grading}."
+    prompt = f"Evaluate the answer '{user_answer}' to the interview question '{chosen_question}' and {grading}."
     completion = openai.Completion.create(engine="text-davinci-002",
                                           max_tokens=256,
                                           prompt=prompt)
@@ -92,7 +92,7 @@ def evaluateAnswer():
     keyword_result = completion.choices[0].text.strip()
 
     returnData = {'prompt': prompt, 'feedback': result, 'keywords': keyword_result}
-    return jsonify(returnData)
+    return render_template("display_feedback.html", topics = topics, fields = fields)
 
 @app.route('/get-started')
 def get_started():
@@ -110,9 +110,10 @@ def store_user_data():
     global user_answer
 
     json_data = request.get_json()
-    if json_data['chosen_question']:
+    json_data_keys = json_data.keys()
+    if 'chosen_question' in json_data_keys :
         chosen_question = json_data['chosen_question']
-    elif json_data['user_answer']:
+    if 'user_answer' in json_data_keys:
         user_answer = json_data['user_answer']
     return jsonify("Success"), 200
 
