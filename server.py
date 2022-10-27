@@ -42,7 +42,7 @@ def convertResponseToList(response):
 # Send the data for topics and fields to display on home page
 @app.route('/')
 def index():
-    return render_template("index.html", topics= topics,fields = fields)
+    return render_template("home.html", topics= topics,fields = fields)
 
 # Ajax call which gets the chosen topic and field, and returns all the questions
 @app.route('/generateQuestions', methods = ['GET','POST'])
