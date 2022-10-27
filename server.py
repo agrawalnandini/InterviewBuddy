@@ -72,8 +72,8 @@ def generateQuestions():
 
 # Evaluates the user's answer to the selected question and sends the feedback and keywords
 # Called again when user re-enters a new answer to incorporate the feedback 
-@app.route('/evaluateAnswer', methods = ['GET','POST'])
-def evaluateAnswer():
+@app.route('/evaluate-answer', methods = ['GET','POST'])
+def evaluate_answer():
     grading = 'give a grade out of 5 with reasoning and useful feedback'
     prompt = f"Evaluate the answer '{user_answer}' to the interview question '{chosen_question}' and {grading}."
     completion = openai.Completion.create(engine="text-davinci-002",
